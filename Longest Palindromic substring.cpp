@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+// DP approach
 string fun(string s)
 {
     int n = s.size(),x=0,y=0;  
@@ -29,4 +29,32 @@ string fun(string s)
     }
     
     return s.substr(x,y-x+1);
+}
+//************************************************************************************************************************************
+
+// O(1) space complexity O(n^2) time complexity
+string LongPal(string s)
+{
+    int start = 0,end = 0;
+    for(int i = 0;i<s.size(); i++)
+    {
+        int len = max( expand(s,i,i), expand(s,i,i+1) );
+        if(len > (end-start + 1))
+        {
+            start = i - (len-1)/2;
+            end = i + (len)/2;   
+        }
+    }
+    
+    return s.substr(start,end-start + 1);
+}
+
+int expand(string s,int l,int r)
+{
+    while(l>=0 && r<s.size() && s[l]==s[r])
+    {
+        l--;
+        r++;
+    }
+    return r-l-1;
 }
