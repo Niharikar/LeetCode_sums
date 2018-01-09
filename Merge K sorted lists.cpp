@@ -33,6 +33,7 @@ ListNode* Merg2(ListNode* l1,ListNode* l2)
         return prehead->next;
 }
 
+// time complexity is O(Nk) O(1) space complexity, k is length of Lists, N is length of each linked list 
 ListNode* Merge(vector<ListNode*>& lists)
 {
     
@@ -46,3 +47,24 @@ ListNode* Merge(vector<ListNode*>& lists)
    return lists[0]; 
     
 }
+
+// time complexity is O(NLogK), space compexity is O(1)
+ListNode* Merge(vector<ListNode*>& lists)
+{
+    int interval = 1;
+    
+    while(interval < lists.size())
+    {
+        for(int i = 0;i<lists.size();i += 2*interval)
+        {
+            lists[i] = Merge2(lists[i],lists[i+interval]);
+        }
+        
+        interval = 2*interval;
+    }
+    
+    return lists[0];
+}
+
+    
+
