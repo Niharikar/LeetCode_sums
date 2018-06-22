@@ -22,9 +22,9 @@ vector< vector<int> > threesum(vector<int>& nums)
                   t[0] = nums[front];t[1] = nums[back];t[2] = -target;
                   ans.push_back(t);
 
-                  while( nums[front] == nums[front+1] && front!=back )
+                  while( t[0] == nums[front] && front!=back )
                     front++;
-                   while( nums[back] == nums[back-1] && front!=back)
+                   while( t[1] == nums[back] && front!=back)
                     back--;
 
              }
