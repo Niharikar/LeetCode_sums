@@ -1,5 +1,5 @@
 
-// O(NlogN) time complexity, O(N) space complexity
+// O(N) time complexity, O(N) space complexity
 int KEmptySlots(vector<int>& flowers,int k)
 {
     vector<int> days(flowers.size());
