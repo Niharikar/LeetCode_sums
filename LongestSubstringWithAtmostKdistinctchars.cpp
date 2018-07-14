@@ -6,7 +6,7 @@ int fun(string s,int k)
     vector<int> count(256,0);
     for(int j = 0;j<s.size();j++)
     {
-        if(count[s[i]]++ == 0)
+        if(count[s[j]]++ == 0)
             num++;
          if(num > k)
          {  
