@@ -19,7 +19,7 @@ string fun(string s)
                 continue;
             }
             
-            if(s[i] == s[i+j] && j>1 && a[i+1][i+j-1])
+            if(s[i] == s[i+j] && j>1 && arr[i+1][i+j-1])
             {
                 arr[i][i+j] = 1;
                 x = i;
